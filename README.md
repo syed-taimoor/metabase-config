@@ -76,7 +76,7 @@ Run the following command to start Metabase:
 docker run -d \
   -p 3000:3000 \
   -v /home/dev-admin/metabase-data:/metabase-data \
-  -e MB_SITE_URL='https://api-admin-release.byotautoparts.com/metabase' \
+  -e MB_SITE_URL='https://your_domain_or_ip/metabase' \
   -e MB_DB_FILE=/metabase-data/metabase.db \
   --name metabase \
   --restart=always \
@@ -124,7 +124,7 @@ http://localhost:3000
 Or if running on a remote server:
 
 ```
-https://api-admin-release.byotautoparts.com/metabase
+https://your_domain_or_ip/metabase
 ```
 
 Complete the initial setup:
@@ -206,7 +206,7 @@ If the container is removed or recreated, run the same command again:
 docker run -d \
   -p 3000:3000 \
   -v /home/dev-admin/metabase-data:/metabase-data \
-  -e MB_SITE_URL='https://api-admin-release.byotautoparts.com/metabase' \
+  -e MB_SITE_URL='https://your_domain_or_ip/metabase' \
   -e MB_DB_FILE=/metabase-data/metabase.db \
   --name metabase \
   --restart=always \
