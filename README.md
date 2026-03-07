@@ -318,20 +318,6 @@ sequenceDiagram
 
 ---
 
-## Summary Architecture Diagram
-
-```mermaid
-flowchart TD
-    Server[Server]
-    MetabaseContainer[Docker Container Metabase]
-    DBFile[metabase.db]
-    HostStorage[/home/dev-admin/metabase-data]
-
-    Server --> MetabaseContainer
-    MetabaseContainer -->|Mounted volume| HostStorage
-    HostStorage --> DBFile
-```
-
 ---
 
 ## Important Note
