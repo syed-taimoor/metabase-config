@@ -56,10 +56,10 @@ Docker version 24.x.x
 Internet
     |
     v
-34.174.59.201 (Azure Public IP)
+xx.xx.xx.xxx (Azure Public IP)
     |
     v
-BYOT-VM-Runner  (Private IP: 10.0.0.4)
+name-Runner  (Private IP: xx.x.x.x)
     |
     v
 Nginx :80  (Reverse Proxy)
