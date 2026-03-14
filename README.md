@@ -98,9 +98,9 @@ Docker Container: metabase  (localhost:3000)
 
 /etc/nginx/
 ├── sites-available/
-│   └── metabase.byotautoparts.com    # Nginx config for this domain
+│   └── metabase.your_domain.com    # Nginx config for this domain
 └── sites-enabled/
-    └── metabase.byotautoparts.com -> ../sites-available/...  (symlink)
+    └── metabase.your_domain.com -> ../sites-available/...  (symlink)
 
 /var/log/letsencrypt/
 └── letsencrypt.log      # SSL cert logs (for future SSL setup)
@@ -116,7 +116,7 @@ Docker Container: metabase  (localhost:3000)
 sudo docker run -d \
   -p 127.0.0.1:3000:3000 \
   -v /opt/metabase-data:/metabase-data \
-  -e MB_SITE_URL='https://metabase.byotautoparts.com' \
+  -e MB_SITE_URL='https://metabase.your_domain.com' \
   -e MB_DB_FILE=/metabase-data/metabase.db \
   -e JAVA_OPTS="-Xmx1g -Xms256m" \
   --name metabase \
@@ -144,7 +144,7 @@ sudo docker run -d \
 
 ### Config Location
 ```
-/etc/nginx/sites-available/metabase.byotautoparts.com
+/etc/nginx/sites-available/metabase.your_domain.com
 ```
 
 ### Current Config (HTTP only)
@@ -152,7 +152,7 @@ sudo docker run -d \
 ```nginx
 server {
     listen 80;
-    server_name metabase.byotautoparts.com;
+    server_name metabase.your_domain.com;
 
     location / {
         proxy_pass         http://127.0.0.1:3000;
