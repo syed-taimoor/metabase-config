@@ -265,7 +265,7 @@ sudo docker stop metabase && sudo docker rm metabase
 sudo docker run -d \
   -p 127.0.0.1:3000:3000 \
   -v /opt/metabase-data:/metabase-data \
-  -e MB_SITE_URL='https://metabase.byotautoparts.com' \
+  -e MB_SITE_URL='https://metabase.your_domain.com' \
   -e MB_DB_FILE=/metabase-data/metabase.db \
   -e JAVA_OPTS="-Xmx1g -Xms256m" \
   --name metabase \
@@ -299,7 +299,7 @@ sudo systemctl stop nginx
 
 # Step 2: Get certificate via standalone mode
 sudo certbot certonly --standalone \
-  -d metabase.byotautoparts.com \
+  -d metabase.your_domain.com \
   --non-interactive --agree-tos \
   -m your@email.com
 
@@ -307,19 +307,19 @@ sudo certbot certonly --standalone \
 sudo systemctl start nginx
 
 # Step 4: Update nginx config to use SSL (replace existing config)
-sudo tee /etc/nginx/sites-available/metabase.byotautoparts.com << 'EOF'
+sudo tee /etc/nginx/sites-available/metabase.your_domain.com << 'EOF'
 server {
     listen 80;
-    server_name metabase.byotautoparts.com;
+    server_name metabase.your_domain.com;
     return 301 https://$host$request_uri;
 }
 
 server {
     listen 443 ssl;
-    server_name metabase.byotautoparts.com;
+    server_name metabase.your_domain.com;
 
-    ssl_certificate     /etc/letsencrypt/live/metabase.byotautoparts.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/metabase.byotautoparts.com/privkey.pem;
+    ssl_certificate     /etc/letsencrypt/live/metabase.your_domain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/metabase.your_domain.com/privkey.pem;
     include             /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam         /etc/letsencrypt/ssl-dhparams.pem;
 
@@ -345,7 +345,7 @@ sudo docker stop metabase && sudo docker rm metabase
 sudo docker run -d \
   -p 127.0.0.1:3000:3000 \
   -v /opt/metabase-data:/metabase-data \
-  -e MB_SITE_URL='https://metabase.byotautoparts.com' \
+  -e MB_SITE_URL='https://metabase.your_domain.com' \
   -e MB_DB_FILE=/metabase-data/metabase.db \
   -e JAVA_OPTS="-Xmx1g -Xms256m" \
   --name metabase \
