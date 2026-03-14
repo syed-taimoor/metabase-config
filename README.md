@@ -26,10 +26,10 @@ Docker version 24.x.x
 ```
 
 ***
-# Metabase Setup — BYOT VM Runner
+# Metabase Setup — Machine Name
 
-**Server:** BYOT-VM-Runner (Azure)
-**Domain:** http://metabase.byotautoparts.com
+**Server:** Machine_Name (Azure/ or any)
+**Domain:** http://metabase.your_domain.com
 **Date:** 2026-03-14
 **OS:** Ubuntu 24.04.4 LTS
 
